@@ -1,0 +1,26 @@
+.task-item {
+  border: 1px solid grey;
+  padding: 10px 20px;
+  margin: 5px; }
+  .task-item__title {
+    font-size: 1rem; }
+  .task-item__description {
+    font-size: .8rem; }
+
+.task-list {
+  display: flex;
+  flex-wrap: wrap; }
+  .task-list__col {
+    width: 30%;
+    margin: 0 calc(10% / 6); }
+  .task-list__header {
+    font-size: 1rem; }
+
+.new-task {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: lightgrey;
+  min-width: 400px;
+  min-height: 300px; }
