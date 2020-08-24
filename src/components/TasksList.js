@@ -39,8 +39,9 @@ class TasksList extends React.Component {
   render() {
     return (
       <div className="task-list">
+        <h1 className="task-list__header">Task board</h1>
         <div className="task-list__col">
-          <h1 className="task-list__header">TO DO:</h1>
+          <p className="task-list__title">TO DO:</p>
           {this.state.taskList
             .filter((task) => task.status === "To do")
             .map((task, id) => (
@@ -48,15 +49,15 @@ class TasksList extends React.Component {
             ))}
         </div>
         <div className="task-list__col">
-          <h1 className="task-list__header">IN PROGRESS:</h1>
+          <p className="task-list__title">IN PROGRESS:</p>
           {this.state.taskList
             .filter((task) => task.status === "In progress")
             .map((task, id) => (
               <Task task={task} key={id} />
             ))}
         </div>
-        <div className="task-list__col">
-          <h1 className="task-list__header">DONE:</h1>
+        <div className="task-list__col task-list__col--fade">
+          <p className="task-list__title">DONE:</p>
           {this.state.taskList
             .filter((task) => task.status === "Done")
             .map((task, id) => (

@@ -5,7 +5,7 @@ class NewTask extends React.Component {
     super(props);
 
     this.state = {
-      task: {},
+      newTask: {},
     };
 
     this.addNewTask = this.addNewTask.bind(this);
@@ -17,7 +17,7 @@ class NewTask extends React.Component {
 
   addNewTask(e) {
     e.preventDefault();
-    this.props.addNewTask(this.state.task);
+    this.props.addNewTask(this.state.newTask);
     this.closeNewWindowTab();
   }
 
@@ -28,8 +28,8 @@ class NewTask extends React.Component {
   changeTitleInput(e) {
     let title = e.target.value;
     this.setState({
-      task: {
-        ...this.state.task,
+      newTask: {
+        ...this.state.newTask,
         title: title,
       },
     });
@@ -38,8 +38,8 @@ class NewTask extends React.Component {
   changeDescriptionInput(e) {
     let description = e.target.value;
     this.setState({
-      task: {
-        ...this.state.task,
+      newTask: {
+        ...this.state.newTask,
         description: description,
       },
     });
@@ -48,8 +48,8 @@ class NewTask extends React.Component {
   changeTaskStatus = (e) => {
     let status = e.target.value;
     this.setState({
-      task: {
-        ...this.state.task,
+      newTask: {
+        ...this.state.newTask,
         status: status,
       },
     });

@@ -1,4 +1,5 @@
 import React from "react";
+import EditTask from "./EditTask";
 
 class Task extends React.Component {
   constructor(props) {
@@ -6,7 +7,10 @@ class Task extends React.Component {
 
     this.state = {
       task: {},
+      editingMode: false,
     };
+
+    this.changeTaskItem = this.changeTaskItem.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +23,7 @@ class Task extends React.Component {
 
   componentDidUpdate(nextProps) {
     const { task } = this.props;
+
     if (nextProps.task !== task) {
       this.setState({
         task: task,
@@ -26,21 +31,35 @@ class Task extends React.Component {
     }
   }
 
+  changeTaskItem() {
+    this.setState({
+      editingMode: true,
+    });
+  }
+
   render() {
     return (
-      <TaskItem
-        title={this.state.task.title}
-        description={this.state.task.description}
-      />
+      <div>
+        {this.state.editingMode ? (
+          <EditTask task={this.state.task} />
+        ) : (
+          <TaskItem
+            title={this.state.task.title}
+            description={this.state.task.description}
+            changeTaskItem={this.changeTaskItem}
+          />
+        )}
+      </div>
     );
   }
 }
 
-const TaskItem = ({ title, description }) => {
+const TaskItem = ({ title, description, changeTaskItem }) => {
   return (
     <div className="task-item">
       <h1 className="task-item__title">{title}</h1>
       <p className="task-item__description">{description}</p>
+      <button onClick={changeTaskItem}>Edit</button>
     </div>
   );
 };
