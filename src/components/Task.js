@@ -7,7 +7,7 @@ class Task extends React.Component {
 
     this.state = {
       task: {},
-      editingMode: false,
+      isEditMode: false,
     };
 
     this.changeTaskItem = this.changeTaskItem.bind(this);
@@ -33,14 +33,14 @@ class Task extends React.Component {
 
   changeTaskItem() {
     this.setState({
-      editingMode: true,
+      isEditMode: true,
     });
   }
 
   render() {
     return (
       <div>
-        {this.state.editingMode ? (
+        {this.state.isEditMode ? (
           <EditTask task={this.state.task} />
         ) : (
           <TaskItem

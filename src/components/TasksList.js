@@ -12,6 +12,7 @@ class TasksList extends React.Component {
       taskList: [],
       newTask: {},
     };
+
     this.openNewTaskWindow = this.openNewTaskWindow.bind(this);
     this.addNewTask = this.addNewTask.bind(this);
   }
